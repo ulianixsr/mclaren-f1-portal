@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>McLaren F1 Team — Ландо Норрис и Оскар Пиастри</title>
+  <link rel="stylesheet" href="style.css?v=4" />
+</head>
+<body class="theme-papaya">
+  <div class="container">
+    <!-- Шапка сайта -->
+    <header class="hero-header">
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true">
+  <svg class="swoosh" viewBox="0 0 200 72">
+    <path d="M188 6 C144 3, 76 16, 12 64 C52 46, 98 41, 134 49 C125 60, 114 68, 102 72 C152 60, 194 31, 198 11 C199 7, 194 6, 188 6 Z" />
+  </svg>
+</div>
+
+        <div>
+          <span class="season-pill">FORMULA 1 • СЕЗОН 2026 • MCL40</span>
+          <h1>McLaren F1 Team</h1>
+          <p class="subtitle">Официальный цветной портал пилотов: Ландо Норрис и Оскар Пиастри</p>
+        </div>
+      </div>
+
+      <div class="livery-switcher">
+        <span class="switcher-label">Ливрея и аудио:</span>
+        <div class="controls">
+  <button type="button" class="theme-btn active" data-theme="theme-papaya">🟠 Papaya Sun</button>
+  <button type="button" class="theme-btn" data-theme="theme-gulf">🩵 Gulf Blue</button>
+  <button type="button" class="theme-btn" data-theme="theme-miami">🌴 Miami Vibe</button>
+  <button type="button" class="audio-btn" id="audio-toggle-btn">🔇 Звук: ВЫКЛ</button>
+  <button type="button" class="audio-btn next-track-btn" id="next-track-btn" title="Следующий трек">⏭️</button>
+  <input
+    type="range"
+    id="volume-slider"
+    class="volume-slider"
+    min="0"
+    max="100"
+    value="25"
+    title="Громкость звука"
+  />
+</div>
+
+        <audio id="bg-audio" loop preload="auto">
+          <source src="audio/f1-theme.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+    </header>
+    <!-- НАВИГАЦИЯ ПО РАЗДЕЛАМ ПОРТАЛА -->
+    <nav class="mcl-nav" aria-label="Навигация по странице">
+      <a href="#drivers" class="nav-pill active">🏎️ Пилоты</a>
+      <a href="#dossier" class="nav-pill">📖 Досье</a>
+      <a href="#comparison" class="nav-pill">📊 Сравнение</a>
+      <a href="#quiz" class="nav-pill">🎯 Квиз ДНК</a>
+      <a href="#pitstop-game" class="nav-pill">🔧 Пит-стоп 1.80с</a>
+      <a href="#team-radio" class="nav-pill">📻 Team Radio</a>
+      <a href="#trophies" class="nav-pill">🏆 Трофеи</a>
+    </nav>
+
+
+    <!-- Единые карточки пилотов (фото сверху + текст снизу) -->
+    <section class="drivers-grid" id="drivers">
+      <!-- Карточка Ландо Норриса -->
+      <article class="driver-card norris-card active" id="card-norris">
+        <div class="card-banner norris-gradient">
+          <span class="big-number">#1</span>
+          <span class="champ-ribbon">🏆 Чемпион мира 2025</span>
+          <img src="img/norris.jpeg" alt="Ландо Норрис" class="driver-avatar" />
+        </div>
+        <div class="card-content">
+          <div class="title-row">
+            <div>
+              <h2>Ландо Норрис</h2>
+              <span class="country">🇬🇧 Бристоль, Великобритания • В McLaren с 2019</span>
+            </div>
+            <span class="number-tag orange-tag">#1</span>
+          </div>
+          <p class="short-bio">
+            Действующий чемпион мира Формулы-1 (2025), выступающий за McLaren с дебютного сезона. Известен высочайшей скоростью в квалификациях и авторским дизайном шлемов.
+          </p>
+          <div class="quick-stats orange-stats">
+            <div><span>Победы</span><strong>14</strong></div>
+            <div><span>Подиумы</span><strong>51</strong></div>
+            <div><span>Поулы</span><strong>20</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Карточка Оскара Пиастри -->
+      <article class="driver-card piastri-card" id="card-piastri">
+        <div class="card-banner piastri-gradient">
+          <span class="big-number">#81</span>
+          <span class="champ-ribbon blue-ribbon">⚡ Хет-трик титулов F-Ren / F3 / F2</span>
+          <img src="img/piastri.jpeg" alt="Оскар Пиастри" class="driver-avatar" />
+        </div>
+        <div class="card-content">
+          <div class="title-row">
+            <div>
+              <h2>Оскар Пиастри</h2>
+              <span class="country">🇦🇺 Мельбурн, Австралия • Контракт до 2028</span>
+            </div>
+            <span class="number-tag blue-tag">#81</span>
+          </div>
+          <p class="short-bio">
+            Один из самых хладнокровных гонщиков пелотона, выигравший подряд три молодёжных чемпионата с первой попытки. Мастер чистых обгонов и стабильного темпа.
+          </p>
+          <div class="quick-stats blue-stats">
+            <div><span>Победы</span><strong>9</strong></div>
+            <div><span>Подиумы</span><strong>29</strong></div>
+            <div><span>Поулы</span><strong>6</strong></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Интерактивное досье пилота -->
+    • <section class="dossier-section" id="dossier">
+      <div class="dossier-header">
+        <div>
+          <span class="badge-live" id="dossier-badge">ДОСЬЕ ПИЛОТА</span>
+          <h2 id="dossier-name">Ландо Норрис (Lando Norris)</h2>
+        </div>
+
+        <div class="tabs">
+          <button type="button" class="tab-btn active" data-tab="bio">📖 Биография и факты</button>
+          <button type="button" class="tab-btn" data-tab="timeline">🏆 Путь к вершине</button>
+          <button type="button" class="tab-btn" data-tab="gallery">📸 Фотогалерея</button>
+          <button type="button" class="tab-btn" data-tab="quiz">🎯 Квиз фаната</button>
+        </div>
+      </div>
+
+      <div id="tab-content" class="tab-content"></div>
+    </section>
+
+    <!-- Сравнение пилотов и интерактивный симулятор -->
+    <section class="comparison-section" id="comparison">
+      <div class="comp-header">
+        <span class="badge-live">HEAD-TO-HEAD СРАВНЕНИЕ</span>
+        <h2>Ландо Норрис vs Оскар Пиастри — Биография и статистика</h2>
+      </div>
+
+      <div class="comp-grid">
+        <div class="bio-compare-table">
+          <div class="comp-row comp-head">
+            <span class="norris-col">Ландо Норрис (#1)</span>
+            <span class="center-col">Параметр</span>
+            <span class="piastri-col">Оскар Пиастри (#81)</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">13 ноября 1999 (27 лет)</span>
+            <span class="center-col">Дата рождения</span>
+            <span class="piastri-col">6 апреля 2001 (25 лет)</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">Бристоль, Англия 🇬🇧</span>
+            <span class="center-col">Родной город</span>
+            <span class="piastri-col">Мельбурн, Австралия 🇦🇺</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">177 см</span>
+            <span class="center-col">Рост</span>
+            <span class="piastri-col">178 см</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">Евро Ф-3 (чемпион), Ф-2 (2-й)</span>
+            <span class="center-col">Юниорская серия</span>
+            <span class="piastri-col">Ф-Рено, Ф-3, Ф-2 (3 титула подряд)</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">Австралия 2019 (McLaren)</span>
+            <span class="center-col">Дебют в Ф-1</span>
+            <span class="piastri-col">Бахрейн 2023 (McLaren)</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">Майами 2024</span>
+            <span class="center-col">Первая победа</span>
+            <span class="piastri-col">Венгрия 2024</span>
+          </div>
+          <div class="comp-row">
+            <span class="norris-col">Взрывная скорость на 1 круге</span>
+            <span class="center-col">Сильная сторона</span>
+            <span class="piastri-col">Хладнокровие и обгоны</span>
+          </div>
+        </div>
+
+        <div class="stats-compare-box">
+          <h3>Карьерная и сезонная статистика</h3>
+          <div id="h2h-bars"></div>
+
+          <div class="sim-controls">
+            <button type="button" class="action-btn orange-btn" id="sim-gp-btn">🏁 Симулировать Гран-при</button>
+            <button type="button" class="action-btn blue-btn" id="pit-btn">🚦 Тест реакции старта</button>
+          </div>
+
+          <div class="lights-row" id="lights">
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+          </div>
+
+          <div class="radio-box" id="radio-output">
+            [MCLAREN PIT WALL]: Выберите пилота, переключите ливрею или запустите симуляцию Гран-при!
+          </div>
+        </div>
+      </div>
+    </section>
+        <section id="quiz" class="section">
+      <div class="container">
+        <div class="pitwall-quiz" id="pitwall-quiz">
+          <canvas id="confetti-canvas" class="confetti-layer"></canvas>
+
+         
+
+          <div class="pq-progress-track">
+            <div class="pq-progress-fill" id="pq-progress-fill" style="width: 25%;"></div>
+          </div>
+
+          <!-- Контейнер текущего вопроса -->
+          <div id="pq-stage">
+            <h3 class="pq-question" id="pq-question-text"></h3>
+            <div class="pq-options" id="pq-options-grid"></div>
+          </div>
+
+          <!-- Экран результата -->
+          <div id="pq-result" class="pq-result hidden"></div>
+        </div>
+      </div>
+    </section>
+    <section id="quiz" class="section">
+      <div class="container">
+        <div class="mcl-quiz">
+          <div class="mq-top">
+            <div>
+              <span class="tag">MCLAREN DRIVER DNA • TELEMETRY TEST</span>
+              <h2>КТО ТЫ В КОМАНДЕ MCLAREN?</h2>
+            </div>
+            <span class="mq-counter">4 ВОПРОСА</span>
+          </div>
+
+          <form id="mq-form" class="mq-list">
+            <div class="mq-card">
+              <div class="mq-q-head">
+                <span class="mq-num">01</span>
+                <h3>Последний круг гонки, впереди соперник за подиум. Твои действия?</h3>
+              </div>
+              <div class="mq-grid">
+                <label class="mq-option">
+                  <input type="radio" name="q1" value="lando" />
+                  <span class="mq-box">
+                    <strong>Атака на пределе</strong>
+                    <small>Прессингую в каждом повороте и ныряю на внутренний радиус до последнего.</small>
+                  </span>
+                </label>
+                <label class="mq-option">
+                  <input type="radio" name="q1" value="oscar" />
+                  <span class="mq-box">
+                    <strong>Холодный расчёт</strong>
+                    <small>Выжду единственную ошибку на выходе и пройду чисто на позднем торможении.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="mq-card">
+              <div class="mq-q-head">
+                <span class="mq-num">02</span>
+                <h3>Начался сильный дождь, команда спрашивает про переход на промежуточные шины.</h3>
+              </div>
+              <div class="mq-grid">
+                <label class="mq-option">
+                  <input type="radio" name="q2" value="lando" />
+                  <span class="mq-box">
+                    <strong>Живой радиоэфир</strong>
+                    <small>Активно обсуждаю каждый поворот с инженером и рискую первым заехать в боксы.</small>
+                  </span>
+                </label>
+                <label class="mq-option">
+                  <input type="radio" name="q2" value="oscar" />
+                  <span class="mq-box">
+                    <strong>Ледяное спокойствие</strong>
+                    <small>Отвечаю двумя спокойными словами так, будто еду по идеальному сухому асфальту.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="mq-card">
+              <div class="mq-q-head">
+                <span class="mq-num">03</span>
+                <h3>Твой главный козырь в квалификации на уличной трассе?</h3>
+              </div>
+              <div class="mq-grid">
+                <label class="mq-option">
+                  <input type="radio" name="q3" value="lando" />
+                  <span class="mq-box">
+                    <strong>Взрывной первый сектор</strong>
+                    <small>Агрессивно атакую поребрики с первых метров круга на грани касания стены.</small>
+                  </span>
+                </label>
+                <label class="mq-option">
+                  <input type="radio" name="q3" value="oscar" />
+                  <span class="mq-box">
+                    <strong>Хирургическая точность</strong>
+                    <small>Идеально стабильные торможения без единой помарки на протяжении всего круга.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="mq-card">
+              <div class="mq-q-head">
+                <span class="mq-num">04</span>
+                <h3>Какой фирменный цвет шлема тебе ближе?</h3>
+              </div>
+              <div class="mq-grid">
+                <label class="mq-option">
+                  <input type="radio" name="q4" value="lando" />
+                  <span class="mq-box">
+                    <strong>Fluro Yellow (#04)</strong>
+                    <small>Яркий неоново-жёлтый акцент, который видно с любой трибуны автодрома.</small>
+                  </span>
+                </label>
+                <label class="mq-option">
+                  <input type="radio" name="q4" value="oscar" />
+                  <span class="mq-box">
+                    <strong>McLaren Blue (#81)</strong>
+                    <small>Сдержанный и стильный гоночный синий оттенок в духе классики.</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="mq-actions">
+              <button type="button" class="btn btn-primary" id="mq-calc-btn">Узнать свой профиль пилота</button>
+              <button type="button" class="btn btn-outline hidden" id="mq-reset-btn">Сбросить ответы</button>
+            </div>
+          </form>
+
+          <div id="mq-result-screen" class="mq-result hidden"></div>
+        </div>
+      </div>
+    </section>
+        <!-- 6. МИНИ-ИГРА: ПИТ-СТОП ЗА 1.80 СЕК -->
+    <section class="pitstop-section" id="pitstop-game">
+      <div class="pit-top">
+        <div>
+          <span class="badge-live">MCL40 PIT CREW CHALLENGE</span>
+          <h2>МИНИ-ИГРА: ПИТ-СТОП ЗА 1.80 СЕКУНДЫ</h2>
+          <p class="pit-sub">Замени все 4 колеса болида максимально быстро и побей рекорд механиков McLaren!</p>
+        </div>
+        <div class="pit-records">
+          <div class="pit-stat-pill">
+            <span>Рекорд McLaren</span>
+            <strong>1.80 с</strong>
+          </div>
+          <div class="pit-stat-pill">
+            <span>Твой рекорд</span>
+            <strong id="pit-best-time">—</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="pit-arena">
+        <div class="pit-timer-display" id="pit-timer">0.00 с</div>
+        <div class="pit-status-text" id="pit-status">Нажми «Начать пит-стоп», затем кликай по всем 4 колёсам!</div>
+
+        <div class="car-rig">
+          <!-- Передняя ось -->
+          <div class="axle-row">
+            <button type="button" class="wheel-btn" data-wheel="FL" disabled>
+              <span class="wheel-code">FL</span>
+              <span class="wheel-state">Ждёт</span>
+            </button>
+            <div class="front-wing">MCL40 • FRONT</div>
+            <button type="button" class="wheel-btn" data-wheel="FR" disabled>
+              <span class="wheel-code">FR</span>
+              <span class="wheel-state">Ждёт</span>
+            </button>
+          </div>
+
+          <!-- Корпус болида -->
+          <div class="car-chassis">
+            <div class="halo-cockpit">PAPAYA CREW</div>
+          </div>
+
+          <!-- Задняя ось -->
+          <div class="axle-row">
+            <button type="button" class="wheel-btn" data-wheel="RL" disabled>
+              <span class="wheel-code">RL</span>
+              <span class="wheel-state">Ждёт</span>
+            </button>
+            <div class="rear-wing">DRS WING</div>
+            <button type="button" class="wheel-btn" data-wheel="RR" disabled>
+              <span class="wheel-code">RR</span>
+              <span class="wheel-state">Ждёт</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="action-btn orange-btn pit-start-btn" id="start-pitstop-btn">
+          🔧 Начать пит-стоп
+        </button>
+      </div>
+    </section>
+    <!-- 7. ИНТЕРАКТИВНЫЙ TEAM RADIO (РАДИОЭФИР ПИЛОТОВ) -->
+    <section class="team-radio-section" id="team-radio">
+      <div class="tr-header">
+        <div>
+          <span class="badge-live">MCLAREN PIT WALL • LIVE COMMS</span>
+          <h2>РАДИОЭФИР TEAM RADIO</h2>
+          <p class="tr-sub">Нажми на любую частоту, чтобы прослушать переговоры Ландо Норриса и Оскара Пиастри с мостиком</p>
+        </div>
+        <div class="tr-live-pill">
+          <span class="tr-dot"></span> CH-04 / CH-81 ACTIVE
+        </div>
+      </div>
+
+      <!-- Экран активного радиосообщения -->
+      <div class="tr-monitor" id="tr-monitor">
+        <div class="tr-monitor-top">
+          <span class="tr-driver-badge" id="tr-active-driver">📻 ВЫБЕРИТЕ КАНАЛ СВЯЗИ</span>
+          <div class="tr-wave" id="tr-wave" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+        <blockquote class="tr-quote-en" id="tr-quote-en">«Нажмите на любую кнопку ниже, чтобы принять радиопередачу с трассы...»</blockquote>
+        <p class="tr-quote-ru" id="tr-quote-ru">Пит-уолл McLaren на связи. Готов к приёму телеметрии и голосовых сообщений.</p>
+        <div class="tr-engineer" id="tr-engineer"></div>
+      </div>
+
+      <!-- Сетка цитат пилотов -->
+      <div class="tr-grid">
+        <!-- Ландо Норрис -->
+        <button type="button" class="tr-btn norris-radio" data-driver="lando" data-clip="0">
+          <span class="tr-ch">#04 NORRIS • Монако / Эмоции</span>
+          <strong>«It's Friday then! Saturday, Sunday, what?!»</strong>
+          <small>Культовый победный настрой Ландо в радиоэфире перед уик-эндом</small>
+        </button>
+
+        <button type="button" class="tr-btn norris-radio" data-driver="lando" data-clip="1">
+          <span class="tr-ch">#04 NORRIS • Дождь в Сочи</span>
+          <strong>«No! Leave me alone, I know what I'm doing!»</strong>
+          <small>Напряжённый спор с инженером о переходе на промежуточные шины</small>
+        </button>
+
+        <button type="button" class="tr-btn norris-radio" data-driver="lando" data-clip="2">
+          <span class="tr-ch">#01 NORRIS • Чемпионский финиш</span>
+          <strong>«We did it! World Champions, baby! Thank you everyone!»</strong>
+          <small>Первые секунды после пересечения финишной черты в статусе чемпиона</small>
+        </button>
+
+        <!-- Оскар Пиастри -->
+        <button type="button" class="tr-btn piastri-radio" data-driver="oscar" data-clip="3">
+          <span class="tr-ch">#81 PIASTRI • Ледяное спокойствие</span>
+          <strong>«Copy. Understood.»</strong>
+          <small>Фирменный ответ Оскара в момент жесточайшей борьбы колесо в колесо</small>
+        </button>
+
+        <button type="button" class="tr-btn piastri-radio" data-driver="oscar" data-clip="4">
+          <span class="tr-ch">#81 PIASTRI • Первая победа (Венгрия)</span>
+          <strong>«Very, very happy with that. Thank you, team.»</strong>
+          <small>Самая спокойная реакция на первую победу в Гран-при в истории Ф-1</small>
+        </button>
+
+        <button type="button" class="tr-btn piastri-radio" data-driver="oscar" data-clip="5">
+          <span class="tr-ch">#81 PIASTRI • Обгон в Лас-Вегасе</span>
+          <strong>«That was a bit close with the wall, all good though.»</strong>
+          <small>После рискованного обгона в миллиметрах от бетонного отбойника</small>
+        </button>
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- Окно увеличения фото (Лайтбокс) -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button type="button" class="close-lightbox" id="close-lightbox">✕</button>
+      <img id="lightbox-img" src="" alt="Увеличенное фото" />
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
+<button type="button" class="scroll-top-btn" id="scroll-top-btn" title="Вернуться наверх" aria-label="Наверх">
+  ↑
+</button>
+  <script src="script.js?v=4"></script>
+</body>
+
+
+
+</html>
+    <!-- 8. СТЕНА ТРОФЕЕВ И ГЛАВНЫХ ПОБЕД -->
+    <section class="trophies-section" id="trophies">
+      <div class="trp-header">
+        <div>
+          <span class="badge-live">WOKING TROPHY CABINET • 2024–2026</span>
+          <h2>СТЕНА ТРОФЕЕВ И ГЛАВНЫХ ПОБЕД</h2>
+          <p class="trp-sub">Ключевые титулы и исторические гонки Ландо Норриса и Оскара Пиастри за McLaren</p>
+        </div>
+
+        <div class="trp-filters" role="group" aria-label="Фильтр трофеев">
+          <button type="button" class="trp-filter-btn active" data-filter="all">Все победы</button>
+          <button type="button" class="trp-filter-btn" data-filter="lando">🟠 Ландо Норрис</button>
+          <button type="button" class="trp-filter-btn" data-filter="oscar">🩵 Оскар Пиастри</button>
+          <button type="button" class="trp-filter-btn" data-filter="team">🏆 Командные</button>
+        </div>
+      </div>
+
+      <div class="trp-grid" id="trophies-grid">
+        <article class="trp-card" data-category="team">
+          <div class="trp-top">
+            <span class="trp-year">2024 • АБУ-ДАБИ</span>
+            <span class="trp-icon">🏆</span>
+          </div>
+          <h3>Кубок конструкторов Ф-1</h3>
+          <p>Первый командный титул McLaren за 26 лет (с 1998 года). Победный финиш на Яс-Марине приносит команде 666 очков.</p>
+          <span class="trp-tag team-tag">MCLAREN F1 TEAM</span>
+        </article>
+
+        <article class="trp-card" data-category="lando">
+          <div class="trp-top">
+            <span class="trp-year">2025 • ЧЕМПИОНАТ МИРА</span>
+            <span class="trp-icon">👑</span>
+          </div>
+          <h3>Ландо Норрис — Чемпион мира Ф-1</h3>
+          <p>7 побед за сезон, включая домашний триумф в Сильверстоуне, и первый личный чемпионский титул в карьере.</p>
+          <span class="trp-tag norris-tag">LANDO NORRIS (#1)</span>
+        </article>
+
+        <article class="trp-card" data-category="oscar">
+          <div class="trp-top">
+            <span class="trp-year">2024 • ХУНГАРОРИНГ</span>
+            <span class="trp-icon">🥇</span>
+          </div>
+          <h3>Дебютная победа Оскара в Венгрии</h3>
+          <p>Безупречный старт, контроль темпа на протяжении всей дистанции и первая победа в Гран-при Формулы-1.</p>
+          <span class="trp-tag piastri-tag">OSCAR PIASTRI (#81)</span>
+        </article>
+
+        <article class="trp-card" data-category="lando">
+          <div class="trp-top">
+            <span class="trp-year">2024 • МАЙАМИ</span>
+            <span class="trp-icon">🌴</span>
+          </div>
+          <h3>Первая победа Норриса в Ф-1</h3>
+          <p>Исторический прорыв в Майами с отрывом более 7 секунд от Макса Ферстаппена на обновлённом болиде.</p>
+          <span class="trp-tag norris-tag">LANDO NORRIS (#4)</span>
+        </article>
+
+        <article class="trp-card" data-category="oscar">
+          <div class="trp-top">
+            <span class="trp-year">2026 • ЛАС-ВЕГАС</span>
+            <span class="trp-icon">⚡</span>
+          </div>
+          <h3>Прорыв с P17 на подиум</h3>
+          <p>Один из главных камбэков сезона-2026: обгон 14 соперников на ночной городской трассе в Неваде.</p>
+          <span class="trp-tag piastri-tag">OSCAR PIASTRI (#81)</span>
+        </article>
+
+        <article class="trp-card" data-category="team">
+          <div class="trp-top">
+            <span class="trp-year">2026 • MCL40</span>
+            <span class="trp-icon">🏎️</span>
+          </div>
+          <h3>Эра нового регламента 2026</h3>
+          <p>Успешный дебют шасси McLaren MCL40 с чемпионской единичкой на носовом обтекателе и серией побед в Европе и Бразилии.</p>
+          <span class="trp-tag team-tag">MCLAREN TECHNOLOGY CENTRE</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 9. ЗАВЕРШАЮЩИЙ ФУТЕР ПИТ-УОЛЛА -->
+    <footer class="mcl-footer">
+      <div class="ft-telemetry-bar" aria-hidden="true">
+        <span>● TELEMETRY ONLINE</span>
+        <span>•</span>
+        <span>CAR #1: L. NORRIS [READY]</span>
+        <span>•</span>
+        <span>CAR #81: O. PIASTRI [READY]</span>
+        <span>•</span>
+        <span>HQ: WOKING, SURREY, UK</span>
+      </div>
+
+      <div class="ft-main">
+        <div class="ft-brand">
+          <div class="ft-logo-row">
+            <div class="logo-box ft-logo" aria-hidden="true">
+              <svg class="swoosh" viewBox="0 0 120 50">
+                <path d="M12 42 C38 14, 78 6, 112 10 C86 18, 62 30, 44 42 C34 40, 22 40, 12 42 Z" />
+              </svg>
+            </div>
+            <div>
+              <h3>McLaren F1 Fan Portal</h3>
+              <p>Интерактивный трибьют команде McLaren, Ландо Норрису и Оскару Пиастри • Сезон 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="ft-links">
+          <a href="#drivers">Пилоты</a>
+          <a href="#dossier">Досье</a>
+          <a href="#comparison">Сравнение</a>
+          <a href="#quiz">Квиз ДНК</a>
+          <a href="#pitstop-game">Пит-стоп</a>
+          <a href="#team-radio">Team Radio</a>
+          <a href="#trophies">Трофеи</a>
+        </div>
+      </div>
+
+      <div class="ft-bottom">
+        <span>Papaya Rules • Сделано с любовью к Формуле-1</span>
+        <button type="button" class="ft-top-link" id="footer-top-btn">Вернуться на старт ↑</button>
+      </div>
+    </footer>
